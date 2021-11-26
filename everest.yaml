@@ -1,0 +1,6 @@
+﻿- Name: NerdHelper
+  Version: 1.0.0
+  DLL: DLL/NerdHelper.dll
+  Dependencies:
+  - Name: Everest
+    Version: 1.3070.0
