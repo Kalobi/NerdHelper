@@ -29,10 +29,17 @@ namespace Celeste.Mod.NerdHelper.Entities
         {
             if (self is DashThroughSpikes spike)
             {
-                if ((player.StateMachine.State == Player.StDash
+                Logger.Log(LogLevel.Warn,"NerdHelper/DashThroughSpikes", spike.zeroSpeedOnly.ToString());
+                Logger.Log(LogLevel.Warn, "NerdHelper/DashThroughSpikes", "cond: " + (((player.StateMachine.State == Player.StDash
+                                                                          || player.StateMachine.State == Player.StDreamDash
+                                                                          || (player.StateMachine.State == Player.StRedDash && spike.red))
+                                                                         && (!spike.zeroSpeedOnly || player.Speed.Equals(Vector2.Zero)))
+                                          ).ToString());
+                if (((player.StateMachine.State == Player.StDash
                     || player.StateMachine.State == Player.StDreamDash
                     || (player.StateMachine.State == Player.StRedDash && spike.red))
-                    ^ spike.invert)
+                    /*&& (!spike.zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))*/)
+                    /*^ spike.invert*/)
                 {
                     return;
                 }
@@ -42,6 +49,7 @@ namespace Celeste.Mod.NerdHelper.Entities
 
         private bool red;
         private bool invert;
+        private bool zeroSpeedOnly;
 
         public static Entity LoadUp(Level level, LevelData levelData, Vector2 offset, EntityData entityData) => new DashThroughSpikes(entityData, offset, Directions.Up);
 
@@ -55,6 +63,7 @@ namespace Celeste.Mod.NerdHelper.Entities
         {
             red = data.Bool("red_boosters_count_as_dash", true);
             invert = data.Bool("invert", false);
+            zeroSpeedOnly = data.Bool("zero_speed_only", false);
             string texturePath = data.Attr("type", "Kalobi/NerdHelper/dashthroughspike");
             if (texturePath.Length == 0)
             {
