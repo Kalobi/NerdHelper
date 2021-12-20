@@ -1,12 +1,12 @@
 #Dash Through Spikes
-placements.entities.NerdHelper/DashThroughSpikesUp.tooltips.textures=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+placements.entities.NerdHelper/DashThroughSpikesUp.tooltips.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
 placements.entities.NerdHelper/DashThroughSpikesUp.tooltips.invert=Kill the player if they dash through the spikes instead.
 
-placements.entities.NerdHelper/DashThroughSpikesDown.tooltips.textures=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_down00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+placements.entities.NerdHelper/DashThroughSpikesDown.tooltips.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_down00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
 placements.entities.NerdHelper/DashThroughSpikesDown.tooltips.invert=Kill the player if they dash through the spikes instead.
 
-placements.entities.NerdHelper/DashThroughSpikesLeft.tooltips.textures=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_left00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+placements.entities.NerdHelper/DashThroughSpikesLeft.tooltips.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_left00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
 placements.entities.NerdHelper/DashThroughSpikesLeft.tooltips.invert=Kill the player if they dash through the spikes instead.
 
-placements.entities.NerdHelper/DashThroughSpikesRight.tooltips.textures=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_right00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+placements.entities.NerdHelper/DashThroughSpikesRight.tooltips.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_right00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
 placements.entities.NerdHelper/DashThroughSpikesRight.tooltips.invert=Kill the player if they dash through the spikes instead.

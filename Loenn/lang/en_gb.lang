@@ -1,4 +1,16 @@
+#Dash Through Spikes
 entities.NerdHelper/DashThroughSpikesUp.placements.name.up=Dash Through Spikes (Up)
-entities.NerdHelper/DashThroughSpikesDown.placements.name.up=Dash Through Spikes (Down)
-entities.NerdHelper/DashThroughSpikesRight.placements.name.up=Dash Through Spikes (Right)
-entities.NerdHelper/DashThroughSpikesLeft.placements.name.up=Dash Through Spikes (Left)
+entities.NerdHelper/DashThroughSpikesUp.attributes.description.invert=Kill the player if they dash through the spikes instead.
+entities.NerdHelper/DashThroughSpikesUp.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+
+entities.NerdHelper/DashThroughSpikesDown.placements.name.down=Dash Through Spikes (Down)
+entities.NerdHelper/DashThroughSpikesDown.attributes.description.invert=Kill the player if they dash through the spikes instead.
+entities.NerdHelper/DashThroughSpikesDown.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+
+entities.NerdHelper/DashThroughSpikesRight.placements.name.right=Dash Through Spikes (Right)
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.invert=Kill the player if they dash through the spikes instead.
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+
+entities.NerdHelper/DashThroughSpikesLeft.placements.name.left=Dash Through Spikes (Left)
+entities.NerdHelper/DashThroughSpikesLeft.attributes.description.invert=Kill the player if they dash through the spikes instead.
+entities.NerdHelper/DashThroughSpikesLeft.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.

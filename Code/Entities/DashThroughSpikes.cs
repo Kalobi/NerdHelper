@@ -55,7 +55,7 @@ namespace Celeste.Mod.NerdHelper.Entities
         {
             red = data.Bool("red_boosters_count_as_dash", true);
             invert = data.Bool("invert", false);
-            string texturePath = data.Attr("textures", "Kalobi/NerdHelper/dashthroughspike");
+            string texturePath = data.Attr("type", "Kalobi/NerdHelper/dashthroughspike");
             if (texturePath.Length == 0)
             {
                 texturePath = "Kalobi/NerdHelper/dashthroughspike";

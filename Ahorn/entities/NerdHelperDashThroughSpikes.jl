@@ -1,10 +1,10 @@
 ﻿module NerdHelperDashThroughSpikes
 using ..Ahorn, Maple
 
-@mapdef Entity "NerdHelper/DashThroughSpikesUp" DashThroughSpikesUp(x::Integer, y::Integer, width::Integer=Maple.defaultSpikeWidth, red_boosters_count_as_dash::Bool=true, invert::Bool=false, textures::String="Kalobi/NerdHelper/dashthroughspike")
-@mapdef Entity "NerdHelper/DashThroughSpikesDown" DashThroughSpikesDown(x::Integer, y::Integer, width::Integer=Maple.defaultSpikeWidth, red_boosters_count_as_dash::Bool=true, invert::Bool=false, textures::String="Kalobi/NerdHelper/dashthroughspike")
-@mapdef Entity "NerdHelper/DashThroughSpikesLeft" DashThroughSpikesLeft(x::Integer, y::Integer, height::Integer=Maple.defaultSpikeHeight, red_boosters_count_as_dash::Bool=true, invert::Bool=false, textures::String="Kalobi/NerdHelper/dashthroughspike")
-@mapdef Entity "NerdHelper/DashThroughSpikesRight" DashThroughSpikesRight(x::Integer, y::Integer, height::Integer=Maple.defaultSpikeHeight, red_boosters_count_as_dash::Bool=true, invert::Bool=false, textures::String="Kalobi/NerdHelper/dashthroughspike")
+@mapdef Entity "NerdHelper/DashThroughSpikesUp" DashThroughSpikesUp(x::Integer, y::Integer, width::Integer=Maple.defaultSpikeWidth, red_boosters_count_as_dash::Bool=true, invert::Bool=false, type::String="Kalobi/NerdHelper/dashthroughspike")
+@mapdef Entity "NerdHelper/DashThroughSpikesDown" DashThroughSpikesDown(x::Integer, y::Integer, width::Integer=Maple.defaultSpikeWidth, red_boosters_count_as_dash::Bool=true, invert::Bool=false, type::String="Kalobi/NerdHelper/dashthroughspike")
+@mapdef Entity "NerdHelper/DashThroughSpikesLeft" DashThroughSpikesLeft(x::Integer, y::Integer, height::Integer=Maple.defaultSpikeHeight, red_boosters_count_as_dash::Bool=true, invert::Bool=false, type::String="Kalobi/NerdHelper/dashthroughspike")
+@mapdef Entity "NerdHelper/DashThroughSpikesRight" DashThroughSpikesRight(x::Integer, y::Integer, height::Integer=Maple.defaultSpikeHeight, red_boosters_count_as_dash::Bool=true, invert::Bool=false, type::String="Kalobi/NerdHelper/dashthroughspike")
 
 const entities = Dict{String, Type}(
     "up" => DashThroughSpikesUp,
@@ -24,10 +24,10 @@ for (dir, entity) in entities
     )
 end
 
-Ahorn.editingOrder(entity::DashThroughSpikesUp) = String["x", "y", "width", "textures", "invert", "red_boosters_count_as_dash"]
-Ahorn.editingOrder(entity::DashThroughSpikesDown) = String["x", "y", "width", "textures", "invert", "red_boosters_count_as_dash"]
-Ahorn.editingOrder(entity::DashThroughSpikesLeft) = String["x", "y", "height", "textures", "invert", "red_boosters_count_as_dash"]
-Ahorn.editingOrder(entity::DashThroughSpikesRight) = String["x", "y", "height", "textures", "invert", "red_boosters_count_as_dash"]
+Ahorn.editingOrder(entity::DashThroughSpikesUp) = String["x", "y", "width", "type", "invert", "red_boosters_count_as_dash"]
+Ahorn.editingOrder(entity::DashThroughSpikesDown) = String["x", "y", "width", "type", "invert", "red_boosters_count_as_dash"]
+Ahorn.editingOrder(entity::DashThroughSpikesLeft) = String["x", "y", "height", "type", "invert", "red_boosters_count_as_dash"]
+Ahorn.editingOrder(entity::DashThroughSpikesRight) = String["x", "y", "height", "type", "invert", "red_boosters_count_as_dash"]
 
 const directions = Dict{String, String}(
     "NerdHelper/DashThroughSpikesUp" => "up",
@@ -79,7 +79,7 @@ function Ahorn.selection(entity::spikesUnion)
         height = Int(get(entity.data, "height", 8))
 
         direction = get(directions, entity.name, "up")
-        variant = get(entity.data, "hotType", "default")
+        variant = get(entity.data, "type", "default")
 
         width = Int(get(entity.data, "width", 8))
         height = Int(get(entity.data, "height", 8))
@@ -118,35 +118,35 @@ end
 
 function Ahorn.flipped(entity::DashThroughSpikesUp, horizontal::Bool)
     if !horizontal
-        return DashThroughSpikesDown(entity.x, entity.y, entity.width, entity.red_boosters_count_as_dash, entity.invert, entity.textures)
+        return DashThroughSpikesDown(entity.x, entity.y, entity.width, entity.red_boosters_count_as_dash, entity.invert, entity.type)
     end
 end
 
 function Ahorn.flipped(entity::DashThroughSpikesDown, horizontal::Bool)
     if !horizontal
-        return DashThroughSpikesUp(entity.x, entity.y, entity.width, entity.red_boosters_count_as_dash, entity.invert, entity.textures)
+        return DashThroughSpikesUp(entity.x, entity.y, entity.width, entity.red_boosters_count_as_dash, entity.invert, entity.type)
     end
 end
 
 function Ahorn.flipped(entity::DashThroughSpikesLeft, horizontal::Bool)
     if horizontal
-        return DashThroughSpikesRight(entity.x, entity.y, entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.textures)
+        return DashThroughSpikesRight(entity.x, entity.y, entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.type)
     end
 end
 
 function Ahorn.flipped(entity::DashThroughSpikesRight, horizontal::Bool)
     if horizontal
-        return DashThroughSpikesLeft(entity.x, entity.y, entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.textures)
+        return DashThroughSpikesLeft(entity.x, entity.y, entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.type)
     end
 end
 
 for (left, normal, right) in (t -> circshift([DashThroughSpikesUp, DashThroughSpikesRight, DashThroughSpikesDown, DashThroughSpikesLeft],t)).(0:3)
     @eval function Ahorn.rotated(entity::$normal, steps::Int)
             if steps > 0
-                return Ahorn.rotated($right(entity.x, entity.y, typeof(entity) in (DashThroughSpikesUp, DashThroughSpikesDown) ? entity.width : entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.textures), steps - 1)
+                return Ahorn.rotated($right(entity.x, entity.y, typeof(entity) in (DashThroughSpikesUp, DashThroughSpikesDown) ? entity.width : entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.type), steps - 1)
 
             elseif steps < 0
-                return Ahorn.rotated($left(entity.x, entity.y, typeof(entity) in (DashThroughSpikesUp, DashThroughSpikesDown) ? entity.width : entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.textures), steps + 1)
+                return Ahorn.rotated($left(entity.x, entity.y, typeof(entity) in (DashThroughSpikesUp, DashThroughSpikesDown) ? entity.width : entity.height, entity.red_boosters_count_as_dash, entity.invert, entity.type), steps + 1)
             end
 
             return entity
