@@ -1,16 +1,58 @@
+mods.NerdHelper.name=Nerd Helper
+
 #Dash Through Spikes
-entities.NerdHelper/DashThroughSpikesUp.placements.name.up=Dash Through Spikes (Up)
+#Up
+entities.NerdHelper/DashThroughSpikesUp.placements.name.normal_spike=Dash Through Spikes (Up)
+entities.NerdHelper/DashThroughSpikesUp.placements.name.fixer=Jumpthru Fixer Spikes (Up)
 entities.NerdHelper/DashThroughSpikesUp.attributes.description.invert=Kill the player if they dash through the spikes instead.
 entities.NerdHelper/DashThroughSpikesUp.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+entities.NerdHelper/DashThroughSpikesUp.attributes.description.zero_speed_only=Prevent death only when not moving. With the other options set to defaults, prevents dying when dashing inside of spikes without otherwise modifying normal spike behavior.
 
-entities.NerdHelper/DashThroughSpikesDown.placements.name.down=Dash Through Spikes (Down)
+entities.NerdHelper/DashThroughSpikesUp.attributes.name.into=Affect Up/Down Dashes
+entities.NerdHelper/DashThroughSpikesUp.attributes.description.into=Whether the player should survive up/down dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesUp.attributes.name.along=Affect Left/Right Dashes
+entities.NerdHelper/DashThroughSpikesUp.attributes.description.along=Whether the player should survive left/right dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesUp.attributes.name.diag=Affect Diagonal Dashes
+entities.NerdHelper/DashThroughSpikesUp.attributes.description.diag=Whether the player should survive diagonal dashes through the spikes.
+
+#Down
+entities.NerdHelper/DashThroughSpikesDown.placements.name.normal_spike=Dash Through Spikes (Down)
+entities.NerdHelper/DashThroughSpikesDown.placements.name.fixer=Jumpthru Fixer Spikes (Down)
 entities.NerdHelper/DashThroughSpikesDown.attributes.description.invert=Kill the player if they dash through the spikes instead.
-entities.NerdHelper/DashThroughSpikesDown.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+entities.NerdHelper/DashThroughSpikesDown.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_down00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+entities.NerdHelper/DashThroughSpikesDown.attributes.description.zero_speed_only=Prevent death only when not moving. With the other options set to defaults, prevents dying when dashing inside of spikes without otherwise modifying normal spike behavior.
 
-entities.NerdHelper/DashThroughSpikesRight.placements.name.right=Dash Through Spikes (Right)
-entities.NerdHelper/DashThroughSpikesRight.attributes.description.invert=Kill the player if they dash through the spikes instead.
-entities.NerdHelper/DashThroughSpikesRight.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+entities.NerdHelper/DashThroughSpikesDown.attributes.name.into=Affect Up/Down Dashes
+entities.NerdHelper/DashThroughSpikesDown.attributes.description.into=Whether the player should survive up/down dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesDown.attributes.name.along=Affect Left/Right Dashes
+entities.NerdHelper/DashThroughSpikesDown.attributes.description.along=Whether the player should survive left/right dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesDown.attributes.name.diag=Affect Diagonal Dashes
+entities.NerdHelper/DashThroughSpikesDown.attributes.description.diag=Whether the player should survive diagonal dashes through the spikes.
 
-entities.NerdHelper/DashThroughSpikesLeft.placements.name.left=Dash Through Spikes (Left)
+#Left
+entities.NerdHelper/DashThroughSpikesLeft.placements.name.normal_spike=Dash Through Spikes (Left)
+entities.NerdHelper/DashThroughSpikesLeft.placements.name.fixer=Jumpthru Fixer Spikes (Left)
 entities.NerdHelper/DashThroughSpikesLeft.attributes.description.invert=Kill the player if they dash through the spikes instead.
-entities.NerdHelper/DashThroughSpikesLeft.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_up00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+entities.NerdHelper/DashThroughSpikesLeft.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_left00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+entities.NerdHelper/DashThroughSpikesLeft.attributes.description.zero_speed_only=Prevent death only when not moving. With the other options set to defaults, prevents dying when dashing inside of spikes without otherwise modifying normal spike behavior.
+
+entities.NerdHelper/DashThroughSpikesLeft.attributes.name.into=Affect Left/Right Dashes
+entities.NerdHelper/DashThroughSpikesLeft.attributes.description.into=Whether the player should survive left/right dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesLeft.attributes.name.along=Affect Up/Down Dashes
+entities.NerdHelper/DashThroughSpikesLeft.attributes.description.along=Whether the player should survive up/down dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesLeft.attributes.name.diag=Affect Diagonal Dashes
+entities.NerdHelper/DashThroughSpikesLeft.attributes.description.diag=Whether the player should survive diagonal dashes through the spikes.
+
+#Right
+entities.NerdHelper/DashThroughSpikesRight.placements.name.normal_spike=Dash Through Spikes (Right)
+entities.NerdHelper/DashThroughSpikesRight.placements.name.fixer=Jumpthru Fixer Spikes (Right)
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.invert=Kill the player if they dash through the spikes instead.
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.type=Place custom textures at Graphics/Atlases/Gameplay/danger/spikes/<your custom path>_right00.png and enter your custom path here. If you add multiple images with different numbers, a texture will be chosen at random.
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.zero_speed_only=Prevent death only when not moving. With the other options set to defaults, prevents dying when dashing inside of spikes without otherwise modifying normal spike behavior.
+
+entities.NerdHelper/DashThroughSpikesRight.attributes.name.into=Affect Left/Right Dashes
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.into=Whether the player should survive left/right dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesRight.attributes.name.along=Affect Up/Down Dashes
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.along=Whether the player should survive up/down dashes through the spikes.
+entities.NerdHelper/DashThroughSpikesRight.attributes.name.diag=Affect Diagonal Dashes
+entities.NerdHelper/DashThroughSpikesRight.attributes.description.diag=Whether the player should survive diagonal dashes through the spikes.

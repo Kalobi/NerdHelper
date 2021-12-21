@@ -29,17 +29,12 @@ namespace Celeste.Mod.NerdHelper.Entities
         {
             if (self is DashThroughSpikes spike)
             {
-                Logger.Log(LogLevel.Warn,"NerdHelper/DashThroughSpikes", spike.zeroSpeedOnly.ToString());
-                Logger.Log(LogLevel.Warn, "NerdHelper/DashThroughSpikes", "cond: " + (((player.StateMachine.State == Player.StDash
-                                                                          || player.StateMachine.State == Player.StDreamDash
-                                                                          || (player.StateMachine.State == Player.StRedDash && spike.red))
-                                                                         && (!spike.zeroSpeedOnly || player.Speed.Equals(Vector2.Zero)))
-                                          ).ToString());
                 if (((player.StateMachine.State == Player.StDash
-                    || player.StateMachine.State == Player.StDreamDash
-                    || (player.StateMachine.State == Player.StRedDash && spike.red))
-                    /*&& (!spike.zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))*/)
-                    /*^ spike.invert*/)
+                      || player.StateMachine.State == Player.StDreamDash
+                      || (player.StateMachine.State == Player.StRedDash && spike.red))
+                     && (!spike.zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))
+                     && spike.CheckDir(player.DashDir))
+                    ^ spike.invert)
                 {
                     return;
                 }
@@ -47,9 +42,27 @@ namespace Celeste.Mod.NerdHelper.Entities
             orig(self, player);
         }
 
+        private bool CheckDir(Vector2 dashDir)
+        {
+            if (Direction == Directions.Up || Direction == Directions.Down)
+            {
+                return (dashDir.X != 0 && dashDir.Y == 0 && along)
+                       || (dashDir.X == 0 && dashDir.Y != 0 && into)
+                       || (dashDir.X != 0 && dashDir.Y != 0 && diag)
+                       || dashDir.Equals(Vector2.Zero);
+            }
+            return (dashDir.X != 0 && dashDir.Y == 0 && into)
+                   || (dashDir.X == 0 && dashDir.Y != 0 && along)
+                   || (dashDir.X != 0 && dashDir.Y != 0 && diag)
+                   || dashDir.Equals(Vector2.Zero);
+        }
+
         private bool red;
         private bool invert;
         private bool zeroSpeedOnly;
+        private bool into;
+        private bool along;
+        private bool diag;
 
         public static Entity LoadUp(Level level, LevelData levelData, Vector2 offset, EntityData entityData) => new DashThroughSpikes(entityData, offset, Directions.Up);
 
@@ -64,6 +77,9 @@ namespace Celeste.Mod.NerdHelper.Entities
             red = data.Bool("red_boosters_count_as_dash", true);
             invert = data.Bool("invert", false);
             zeroSpeedOnly = data.Bool("zero_speed_only", false);
+            into = data.Bool("into", true);
+            along = data.Bool("along", true);
+            diag = data.Bool("diag", true);
             string texturePath = data.Attr("type", "Kalobi/NerdHelper/dashthroughspike");
             if (texturePath.Length == 0)
             {
