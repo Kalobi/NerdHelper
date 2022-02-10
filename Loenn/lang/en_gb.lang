@@ -56,3 +56,8 @@ entities.NerdHelper/DashThroughSpikesRight.attributes.name.along=Affect Up/Down 
 entities.NerdHelper/DashThroughSpikesRight.attributes.description.along=Whether the player should survive up/down dashes through the spikes.
 entities.NerdHelper/DashThroughSpikesRight.attributes.name.diag=Affect Diagonal Dashes
 entities.NerdHelper/DashThroughSpikesRight.attributes.description.diag=Whether the player should survive diagonal dashes through the spikes.
+
+entities.NerdHelper/BouncyJellyfish.placements.name.normal=Bouncy Jellyfish
+entities.NerdHelper/BouncyJellyfish.placements.name.floating=Bouncy Jellyfish (Floating)
+entities.NerdHelper/BouncyJellyfish.attributes.description.bubble=Whether the entity should hover in the air before being grabbed.
+entities.NerdHelper/BouncyJellyfish.attributes.description.tutorial=Whether the entity should show the usage tutorial.

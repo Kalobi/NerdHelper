@@ -85,7 +85,7 @@ namespace Celeste.Mod.NerdHelper.Entities
             {
                 texturePath = "Kalobi/NerdHelper/dashthroughspike";
             }
-            new DynamicData(typeof(Spikes),this).Set("overrideType", texturePath);
+            DynamicData.For(this).Set("overrideType", texturePath);
         }
     }
 }

@@ -57,13 +57,13 @@
     <Reference Include="Mono.Cecil.Rocks, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e">
       <HintPath>..\..\..\celeste\Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
-    <Reference Include="MonoMod, Version=21.8.19.1, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="MonoMod, Version=22.1.4.3, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\..\celeste\MonoMod.exe</HintPath>
     </Reference>
-    <Reference Include="MonoMod.RuntimeDetour, Version=21.8.19.1, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="MonoMod.RuntimeDetour, Version=22.1.4.3, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\..\celeste\MonoMod.RuntimeDetour.dll</HintPath>
     </Reference>
-    <Reference Include="MonoMod.Utils, Version=21.8.19.1, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="MonoMod.Utils, Version=22.1.4.3, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\..\celeste\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -77,6 +77,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Entities\BouncyJellyfish.cs" />
     <Compile Include="Code\Entities\DashThroughSpikes.cs" />
     <Compile Include="Code\Module\NerdHelperModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
