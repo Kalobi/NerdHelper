@@ -33,6 +33,10 @@ for (dir, entity) in entities
     )
 end
 
+Ahorn.editingOptions(entity::spikesUnion) = Dict{String, Any}(
+    "type" => vcat(String["Kalobi/NerdHelper/dashthroughspike"], Maple.spike_types)
+)
+
 Ahorn.editingOrder(entity::DashThroughSpikesUp) = String["x", "y", "width", "type", "red_boosters_count_as_dash", "along", "into", "diag", "zero_speed_only", "invert"]
 Ahorn.editingOrder(entity::DashThroughSpikesDown) = String["x", "y", "width", "type", "red_boosters_count_as_dash", "along", "into", "diag", "zero_speed_only", "invert"]
 Ahorn.editingOrder(entity::DashThroughSpikesLeft) = String["x", "y", "height", "type", "red_boosters_count_as_dash", "along", "into", "diag", "zero_speed_only", "invert"]
