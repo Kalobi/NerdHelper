@@ -3,7 +3,6 @@
 namespace Celeste.Mod.NerdHelper.Module
 {
     public class NerdHelperModule : EverestModule
-
     {
         public override void Load()
         {

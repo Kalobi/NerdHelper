@@ -30,6 +30,7 @@ namespace Celeste.Mod.NerdHelper.Entities
             if (self is DashThroughSpikes spike)
             {
                 if (((player.StateMachine.State == Player.StDash
+                      || (player.DashAttacking && player.StateMachine.State != Player.StRedDash)
                       || player.StateMachine.State == Player.StDreamDash
                       || (player.StateMachine.State == Player.StRedDash && spike.red))
                      && (!spike.zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))
