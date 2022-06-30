@@ -1,7 +1,7 @@
-﻿using Celeste.Mod.Entities;
+﻿using System.Reflection;
+using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
 using Monocle;
-using MonoMod.Utils;
 
 namespace Celeste.Mod.NerdHelper.Entities
 {
@@ -73,6 +73,7 @@ namespace Celeste.Mod.NerdHelper.Entities
 
         public static Entity LoadRight(Level level, LevelData levelData, Vector2 offset, EntityData entityData) => new DashThroughSpikes(entityData, offset, Directions.Right);
 
+        private readonly FieldInfo spikesOverrideType = typeof(Spikes).GetField("overrideType", BindingFlags.Instance | BindingFlags.NonPublic);
         public DashThroughSpikes(EntityData data, Vector2 offset, Directions dir) : base(data, offset, dir)
         {
             red = data.Bool("red_boosters_count_as_dash", true);
@@ -86,7 +87,7 @@ namespace Celeste.Mod.NerdHelper.Entities
             {
                 texturePath = "Kalobi/NerdHelper/dashthroughspike";
             }
-            DynamicData.For(this).Set("overrideType", texturePath);
+            spikesOverrideType.SetValue(this, texturePath);
         }
     }
 }
