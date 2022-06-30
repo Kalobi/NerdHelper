@@ -73,7 +73,7 @@ namespace Celeste.Mod.NerdHelper.Entities
 
         public static Entity LoadRight(Level level, LevelData levelData, Vector2 offset, EntityData entityData) => new DashThroughSpikes(entityData, offset, Directions.Right);
 
-        private readonly FieldInfo spikesOverrideType = typeof(Spikes).GetField("overrideType", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo spikesOverrideType = typeof(Spikes).GetField("overrideType", BindingFlags.Instance | BindingFlags.NonPublic);
         public DashThroughSpikes(EntityData data, Vector2 offset, Directions dir) : base(data, offset, dir)
         {
             red = data.Bool("red_boosters_count_as_dash", true);

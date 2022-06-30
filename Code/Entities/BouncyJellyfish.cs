@@ -21,7 +21,7 @@ namespace Celeste.Mod.NerdHelper.Entities
             cannotHitTimer -= Engine.DeltaTime;
         }
 
-        private readonly FieldInfo gliderSprite = typeof(Glider).GetField("sprite", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FieldInfo gliderSprite = typeof(Glider).GetField("sprite", BindingFlags.Instance | BindingFlags.NonPublic);
         private void OnPlayer(Player player)
         {
             if (cannotHitTimer <= 0 && player.Speed.Y >= 0)
