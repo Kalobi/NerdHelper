@@ -57,7 +57,17 @@ entities.NerdHelper/DashThroughSpikesRight.attributes.description.along=Whether 
 entities.NerdHelper/DashThroughSpikesRight.attributes.name.diag=Affect Diagonal Dashes
 entities.NerdHelper/DashThroughSpikesRight.attributes.description.diag=Whether the player should survive diagonal dashes through the spikes.
 
+#Bouncy Jellyfish
 entities.NerdHelper/BouncyJellyfish.placements.name.normal=Bouncy Jellyfish
 entities.NerdHelper/BouncyJellyfish.placements.name.floating=Bouncy Jellyfish (Floating)
 entities.NerdHelper/BouncyJellyfish.attributes.description.bubble=Whether the entity should hover in the air before being grabbed.
 entities.NerdHelper/BouncyJellyfish.attributes.description.tutorial=Whether the entity should show the usage tutorial.
+
+#Jump Swap Block
+entities.NerdHelper/JumpSwapBlock.placements.name.normal=Jump Swap Block (Normal)
+entities.NerdHelper/JumpSwapBlock.placements.name.moon=Jump Swap Block (Moon)
+entities.NerdHelper/JumpSwapBlock.attributes.name.ground_jump=Swap On Ground Jump
+entities.NerdHelper/JumpSwapBlock.attributes.name.wall_jump=Swap On Wall Jump
+entities.NerdHelper/JumpSwapBlock.attributes.name.wallbounce=Swap On Wallbounce
+entities.NerdHelper/JumpSwapBlock.attributes.name.super=Swap On Super
+entities.NerdHelper/JumpSwapBlock.attributes.name.hyper=Swap On Hyper

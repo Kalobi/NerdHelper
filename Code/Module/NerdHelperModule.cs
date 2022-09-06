@@ -1,4 +1,5 @@
 ﻿using Celeste.Mod.NerdHelper.Entities;
+using NerdHelper.Code.Components;
 
 namespace Celeste.Mod.NerdHelper.Module
 {
@@ -9,11 +10,13 @@ namespace Celeste.Mod.NerdHelper.Module
             Logger.SetLogLevel("NerdHelper", LogLevel.Info);
 
             DashThroughSpikes.Load();
+            JumpListener.Load();
         }
 
         public override void Unload()
         {
             DashThroughSpikes.Unload();
+            JumpListener.Unload();
         }
 
         

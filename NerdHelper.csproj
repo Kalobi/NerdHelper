@@ -77,8 +77,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Components\JumpListener.cs" />
     <Compile Include="Code\Entities\BouncyJellyfish.cs" />
     <Compile Include="Code\Entities\DashThroughSpikes.cs" />
+    <Compile Include="Code\Entities\JumpSwapBlock.cs" />
     <Compile Include="Code\Module\NerdHelperModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
