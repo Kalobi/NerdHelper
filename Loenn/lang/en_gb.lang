@@ -66,7 +66,7 @@ entities.NerdHelper/BouncyJellyfish.attributes.description.tutorial=Whether the 
 #Jump Swap Block
 entities.NerdHelper/JumpSwapBlock.placements.name.normal=Jump Swap Block (Normal)
 entities.NerdHelper/JumpSwapBlock.placements.name.moon=Jump Swap Block (Moon)
-entities.NerdHelper/JumpSwapBlock.attributes.name.ground_jump=Swap On Ground Jump
+entities.NerdHelper/JumpSwapBlock.attributes.name.ground_jump=Swap On Ground/Climb Jump
 entities.NerdHelper/JumpSwapBlock.attributes.name.wall_jump=Swap On Wall Jump
 entities.NerdHelper/JumpSwapBlock.attributes.name.wallbounce=Swap On Wallbounce
 entities.NerdHelper/JumpSwapBlock.attributes.name.super=Swap On Super
