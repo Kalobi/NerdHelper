@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
 using Monocle;
@@ -65,8 +64,6 @@ public class DashThroughSpikes : Spikes {
         return new DashThroughSpikes(entityData, offset, Directions.Right);
     }
 
-    private static readonly FieldInfo spikesOverrideType = typeof(Spikes).GetField("overrideType", BindingFlags.Instance | BindingFlags.NonPublic);
-
     public DashThroughSpikes(EntityData data, Vector2 offset, Directions dir) : base(data, offset, dir) {
         red = data.Bool("red_boosters_count_as_dash", true);
         invert = data.Bool("invert", false);
@@ -78,9 +75,8 @@ public class DashThroughSpikes : Spikes {
         if (texturePath.Length == 0) {
             texturePath = "Kalobi/NerdHelper/dashthroughspike";
         }
-        spikesOverrideType.SetValue(this, texturePath);
-        var collider = Get<PlayerCollider>();
-        origOnCollide = collider.OnCollide;
-        collider.OnCollide = OnPlayer;
+        overrideType = texturePath;
+        origOnCollide = pc.OnCollide;
+        pc.OnCollide = OnPlayer;
     }
 }

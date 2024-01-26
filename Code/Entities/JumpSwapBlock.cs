@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
 using NerdHelper.Code.Components;
@@ -20,11 +19,9 @@ public class JumpSwapBlock : SwapBlock {
         Add(new JumpListener(OnJump));
     }
 
-    private static readonly MethodInfo swapBlockOnDash = typeof(SwapBlock).GetMethod("OnDash", BindingFlags.Instance | BindingFlags.NonPublic);
-
     private void OnJump(JumpListener.JumpTypes type) {
         if (jumpTypes.HasFlag(type)) {
-            swapBlockOnDash.Invoke(this, new object[] {Vector2.Zero});
+            OnDash(Vector2.Zero);
         }
     }
 }
