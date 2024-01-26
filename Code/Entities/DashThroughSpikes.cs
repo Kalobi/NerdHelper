@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
 using Monocle;
@@ -12,27 +13,19 @@ namespace Celeste.Mod.NerdHelper.Entities {
     )]
     [TrackedAs(typeof(Spikes))]
     public class DashThroughSpikes : Spikes {
-        public static void Load() {
-            On.Celeste.Spikes.OnCollide += OnCollide;
-        }
+        private readonly Action<Player> origOnCollide;
 
-        public static void Unload() {
-            On.Celeste.Spikes.OnCollide -= OnCollide;
-        }
-
-        private static void OnCollide(On.Celeste.Spikes.orig_OnCollide orig, Spikes self, Player player) {
-            if (self is DashThroughSpikes spike) {
-                if (((player.StateMachine.State == Player.StDash
-                      || player.DashAttacking && player.StateMachine.State != Player.StRedDash
-                      || player.StateMachine.State == Player.StDreamDash
-                      || player.StateMachine.State == Player.StRedDash && spike.red)
-                     && (!spike.zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))
-                     && spike.CheckDir(player.DashDir))
-                    ^ spike.invert) {
-                    return;
-                }
+        private void OnPlayer(Player player) {
+            if (((player.StateMachine.State == Player.StDash
+                  || player.DashAttacking && player.StateMachine.State != Player.StRedDash
+                  || player.StateMachine.State == Player.StDreamDash
+                  || player.StateMachine.State == Player.StRedDash && red)
+                 && (!zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))
+                 && CheckDir(player.DashDir))
+                ^ invert) {
+                return;
             }
-            orig(self, player);
+            origOnCollide(player);
         }
 
         private bool CheckDir(Vector2 dashDir) {
@@ -85,6 +78,9 @@ namespace Celeste.Mod.NerdHelper.Entities {
                 texturePath = "Kalobi/NerdHelper/dashthroughspike";
             }
             spikesOverrideType.SetValue(this, texturePath);
+            var collider = Get<PlayerCollider>();
+            origOnCollide = collider.OnCollide;
+            collider.OnCollide = OnPlayer;
         }
     }
 }
