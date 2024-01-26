@@ -387,5 +387,6 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
-DLL/
+bin/
+Dialog/
 Maps/
