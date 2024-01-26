@@ -13,6 +13,8 @@ namespace Celeste.Mod.NerdHelper.Entities;
 )]
 [TrackedAs(typeof(Spikes))]
 public class DashThroughSpikes : Spikes {
+    private const string defaultTexture = "Kalobi/NerdHelper/dashthroughspike";
+    
     private readonly Action<Player> origOnCollide;
 
     private void OnPlayer(Player player) {
@@ -71,11 +73,13 @@ public class DashThroughSpikes : Spikes {
         into = data.Bool("into", true);
         along = data.Bool("along", true);
         diag = data.Bool("diag", true);
-        string texturePath = data.Attr("type", "Kalobi/NerdHelper/dashthroughspike");
+        
+        string texturePath = data.Attr("type", defaultTexture);
         if (texturePath.Length == 0) {
-            texturePath = "Kalobi/NerdHelper/dashthroughspike";
+            texturePath = defaultTexture;
         }
         overrideType = texturePath;
+        
         origOnCollide = pc.OnCollide;
         pc.OnCollide = OnPlayer;
     }
