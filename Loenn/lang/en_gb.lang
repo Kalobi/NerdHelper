@@ -71,3 +71,9 @@ entities.NerdHelper/JumpSwapBlock.attributes.name.wall_jump=Swap On Wall Jump
 entities.NerdHelper/JumpSwapBlock.attributes.name.wallbounce=Swap On Wallbounce
 entities.NerdHelper/JumpSwapBlock.attributes.name.super=Swap On Super
 entities.NerdHelper/JumpSwapBlock.attributes.name.hyper=Swap On Hyper
+
+#Cutscene Shake Trigger
+triggers.NerdHelper/CutsceneShakeTrigger.placements.name.shake=Cutscene Screen Shake Trigger
+triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.time=How many second the screen shake should last.
+triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.xDirection=X Direction of the screen shake.
+triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.yDirection=Y Direction of the screen shake.

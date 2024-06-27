@@ -1,0 +1,6 @@
+NerdHelperCutsceneScreenshakeSetting= Cutscene Screen Shake
+NerdHelperCutsceneScreenshakeDescription= Separate screen shake setting for mods using{n}Nerd Helper's Cutscene Screen Shake Trigger etc.
+modoptions_NerdHelperModule_CutsceneScreenshake_MatchVanilla= Match Vanilla Setting
+modoptions_NerdHelperModule_CutsceneScreenshake_AlwaysOff= Off
+modoptions_NerdHelperModule_CutsceneScreenshake_Always50= 50%
+modoptions_NerdHelperModule_CutsceneScreenshake_Always100= 100%
