@@ -1,5 +1,5 @@
 - Name: NerdHelper
-  Version: 1.5.0
+  Version: 1.5.1
   DLL: bin/NerdHelper.dll
   Dependencies:
     - Name: EverestCore
