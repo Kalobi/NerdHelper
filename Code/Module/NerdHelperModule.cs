@@ -1,4 +1,5 @@
 ﻿using System;
+using Celeste.Mod.NerdHelper.Entities;
 using Celeste.Mod.NerdHelper.Utils;
 using MonoMod.ModInterop;
 using NerdHelper.Code.Components;
@@ -19,6 +20,7 @@ public class NerdHelperModule : EverestModule {
             
         JumpListener.Load();
         CutsceneScreenshake.Load();
+        NodedFlingBird.Load();
         
         typeof(NerdHelperInterop).ModInterop();
     }
@@ -26,5 +28,6 @@ public class NerdHelperModule : EverestModule {
     public override void Unload() {
         JumpListener.Unload();
         CutsceneScreenshake.Unload();
+        NodedFlingBird.Unload();
     }
 }

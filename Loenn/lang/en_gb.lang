@@ -72,6 +72,13 @@ entities.NerdHelper/JumpSwapBlock.attributes.name.wallbounce=Swap On Wallbounce
 entities.NerdHelper/JumpSwapBlock.attributes.name.super=Swap On Super
 entities.NerdHelper/JumpSwapBlock.attributes.name.hyper=Swap On Hyper
 
+#Noded Fling Bird
+entities.NerdHelper/NodedFlingBird.placements.name.bird=Noded Fling Bird
+entities.NerdHelper/NodedFlingBird.attributes.name.leftFlingingNodes=Left-Flinging Nodes
+entities.NerdHelper/NodedFlingBird.attributes.description.leftFlingingNodes=Comma-separated list of nodes that should fling the player left instead of right.\n0 represents the initial position.\nFor example, "0,1" will make the initial and the second position fling the player left.
+entities.NerdHelper/NodedFlingBird.attributes.description.doCameraZoom=Whether the camera should zoom in during the fling.
+entities.NerdHelper/NodedFlingBird.attributes.description.waitForLightning=Whether the bird should wait at its final position until lightning is removed from the room.
+
 #Cutscene Shake Trigger
 triggers.NerdHelper/CutsceneShakeTrigger.placements.name.shake=Cutscene Screen Shake Trigger
 triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.time=How many seconds the screen shake should last.
