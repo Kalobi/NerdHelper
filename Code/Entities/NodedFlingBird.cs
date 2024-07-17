@@ -9,6 +9,7 @@ using Monocle;
 namespace Celeste.Mod.NerdHelper.Entities;
 
 [CustomEntity("NerdHelper/NodedFlingBird")]
+[Tracked]
 public class NodedFlingBird : Entity {
     
     private enum States {
@@ -34,13 +35,17 @@ public class NodedFlingBird : Entity {
     private bool doCameraZoom;
     private bool waitForLightning;
     private Facings facing;
+    internal EntityID eid;
+    private int _destinationNode;
+    private bool _directRoute;
     
-    public NodedFlingBird(EntityData data, Vector2 offset) : base(data.Position + offset) {
+    public NodedFlingBird(EntityData data, Vector2 offset, EntityID id) : base(data.Position + offset) {
+        eid = id;
         positions = [..data.NodesWithPosition(offset)];
         leftFlingingNodes = [];
         string rawLeftNodes = data.Attr("leftFlingingNodes");
         if (!string.IsNullOrWhiteSpace(rawLeftNodes)) {
-            foreach (string s in data.Attr("leftFlingingNodes").Split(',')) {
+            foreach (string s in rawLeftNodes.Split(',')) {
                 if (!int.TryParse(s.Trim(), out int i) || i < 0 || i >= positions.Count) {
                     throw new ArgumentException($"{s} is not a valid node for Noded Fling Bird at {Position}");
                 }
@@ -71,8 +76,10 @@ public class NodedFlingBird : Entity {
         }
         switch (state) {
             case States.Wait:
-                // bird is visually attracted to player 
-                if (Scene.Tracker.GetEntity<Player>() is Player player) {
+                if (_destinationNode > nodeIndex) {
+                    Skip(_directRoute ? _destinationNode : nodeIndex + 1);
+                } else if (Scene.Tracker.GetEntity<Player>() is Player player) {
+                    // bird is visually attracted to player 
                     Vector2 toPlayer = player.Center - Position;
                     float pullStrength = Calc.ClampedMap(toPlayer.Length(), 16f, 64f, 12f, 0f);
                     Vector2 dir = toPlayer.SafeNormalize();
@@ -100,9 +107,14 @@ public class NodedFlingBird : Entity {
         sprite.Scale.X = float.CopySign(sprite.Scale.X, (float) facing);
     }
 
-    private void Skip() {
+    public void TriggerSkipToNode(int destinationNode, bool directRoute) {
+        _destinationNode = destinationNode;
+        _directRoute = directRoute;
+    }
+
+    private void Skip(int targetNode) {
         state = States.Move;
-        Add(new Coroutine(MoveRoutine()));
+        Add(new Coroutine(MoveRoutine(targetNode)));
     }
 
     private void OnPlayer(Player player) {
@@ -168,18 +180,24 @@ public class NodedFlingBird : Entity {
         flingTargetSpeed = Vector2.Zero;
         flingAccel = 4000f;
         yield return 0.3f;
-        Add(new Coroutine(MoveRoutine()));
+        Add(new Coroutine(MoveRoutine(nodeIndex + 1)));
     }
 
-    private IEnumerator MoveRoutine() {
+    private IEnumerator MoveRoutine(int targetNode) {
         state = States.Move;
         sprite.Play("fly");
         moveSfx.Play(SFX.game_10_bird_relocate);
-        nodeIndex++;
+        int oldIndex = nodeIndex;
+        nodeIndex = targetNode;
         bool atEnding = nodeIndex >= positions.Count;
         if (!atEnding) {
-            facing = positions[nodeIndex].X >= positions[nodeIndex - 1].X ? Facings.Right : Facings.Left;
-            yield return MoveOnCurve(Position, (Position + positions[nodeIndex]) / 2, positions[nodeIndex]);
+            facing = positions[nodeIndex].X >= positions[oldIndex].X ? Facings.Right : Facings.Left;
+            Vector2 path = positions[nodeIndex] - Position;
+            Vector2 curveOffset = path.Rotate(MathF.PI / 2) * 0.2f;
+            if (curveOffset.Y > 0) {
+                curveOffset.Y *= -1;
+            }
+            yield return MoveOnCurve(Position, (Position + positions[nodeIndex]) / 2 + curveOffset, positions[nodeIndex]);
         }
         sprite.Rotation = 0f;
         sprite.Scale = Vector2.One;
@@ -208,11 +226,11 @@ public class NodedFlingBird : Entity {
         for (float t = 0.016f; t <= 1f; t += Engine.DeltaTime / duration)
         {
             Position = curve.GetPoint(t).Floor();
-            /*
-            sprite.Rotation = Calc.Angle(curve.GetPoint(Math.Max(0f, t - 0.05f)), curve.GetPoint(Math.Min(1f, t + 0.05f)));
+            // causes weird offset issues
+            // sprite.Rotation = Calc.Angle(curve.GetPoint(Math.Max(0f, t - 0.05f)), curve.GetPoint(Math.Min(1f, t + 0.05f)));
             sprite.Scale.X = 1.25f;
             sprite.Scale.Y = 0.7f;
-            */
+            
             if ((was - Position).Length() > 32f)
             {
                 TrailManager.Add(this, trailColor, 1f);

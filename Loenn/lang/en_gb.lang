@@ -74,6 +74,7 @@ entities.NerdHelper/JumpSwapBlock.attributes.name.hyper=Swap On Hyper
 
 #Noded Fling Bird
 entities.NerdHelper/NodedFlingBird.placements.name.bird=Noded Fling Bird
+entities.NerdHelper/NodedFlingBird.placements.description.bird=Fling Bird that uses its nodes to determine its future positions.
 entities.NerdHelper/NodedFlingBird.attributes.name.leftFlingingNodes=Left-Flinging Nodes
 entities.NerdHelper/NodedFlingBird.attributes.description.leftFlingingNodes=Comma-separated list of nodes that should fling the player left instead of right.\n0 represents the initial position.\nFor example, "0,1" will make the initial and the second position fling the player left.
 entities.NerdHelper/NodedFlingBird.attributes.description.doCameraZoom=Whether the camera should zoom in during the fling.
@@ -85,3 +86,9 @@ triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.time=How many se
 triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.xDirection=X Direction of the screen shake.
 triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.yDirection=Y Direction of the screen shake.
 triggers.NerdHelper/CutsceneShakeTrigger.attributes.description.frequency=How often the screen shake should be possible to trigger.
+
+#Noded Fling Bird Skip Trigger
+triggers.NerdHelper/NodedFlingBirdSkipTrigger.placements.name.skip=Noded Fling Bird Skip Trigger
+triggers.NerdHelper/NodedFlingBirdSkipTrigger.attributes.description.birdID=Entity ID (without room name) of the Noded Fling Bird controlled by this trigger.\nThis ID can be found at the top of the entity's property window after right-clicking it in Lönn.
+triggers.NerdHelper/NodedFlingBirdSkipTrigger.attributes.description.skipToNode=The node that the bird should skip to when the player enters this trigger.
+triggers.NerdHelper/NodedFlingBirdSkipTrigger.attributes.description.takeDirectRoute=Whether the bird should go directly to the target node instead of passing through all intermediate nodes.
