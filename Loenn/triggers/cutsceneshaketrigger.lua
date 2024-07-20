@@ -20,5 +20,6 @@ shake.fieldInformation = {
         editable = false
     }
 }
+shake.category = "visual"
 
 return shake
