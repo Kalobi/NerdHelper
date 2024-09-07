@@ -22,8 +22,7 @@ public class DashThroughSpikes : Spikes {
         if (((player.StateMachine.State == Player.StDash
               || player.DashAttacking && player.StateMachine.State != Player.StRedDash
               || player.StateMachine.State == Player.StDreamDash
-              || (NerdHelperModule.CommunalHelperInterop.GetDreamTunnelDashState != null
-                  && player.StateMachine.State == NerdHelperModule.CommunalHelperInterop.GetDreamTunnelDashState())
+              || player.StateMachine.State == NerdHelperModule.CommunalHelperInterop.GetDreamTunnelDashState?.Invoke()
               || (NerdHelperModule.CommunalHelperInterop.IsSeekerDashAttacking?.Invoke() ?? false)
               || player.StateMachine.State == Player.StRedDash && red)
              && (!zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))
