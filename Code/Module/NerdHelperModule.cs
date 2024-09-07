@@ -12,6 +12,12 @@ public class NerdHelperModule : EverestModule {
     public override Type SettingsType => typeof(NerdHelperModuleSettings);
     public static NerdHelperModuleSettings Settings => (NerdHelperModuleSettings) Instance._Settings;
 
+    [ModImportName("CommunalHelper.DashStates")]
+    internal class CommunalHelperInterop {
+        public static Func<int> GetDreamTunnelDashState;
+        public static Func<bool> IsSeekerDashAttacking;
+    }
+
     public NerdHelperModule() {
         Instance = this;
     }
@@ -23,6 +29,7 @@ public class NerdHelperModule : EverestModule {
         NodedFlingBird.Load();
         
         typeof(NerdHelperInterop).ModInterop();
+        typeof(CommunalHelperInterop).ModInterop();
     }
 
     public override void Unload() {

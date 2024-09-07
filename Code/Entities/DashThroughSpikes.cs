@@ -1,5 +1,6 @@
 ﻿using System;
 using Celeste.Mod.Entities;
+using Celeste.Mod.NerdHelper.Module;
 using Microsoft.Xna.Framework;
 using Monocle;
 
@@ -21,6 +22,9 @@ public class DashThroughSpikes : Spikes {
         if (((player.StateMachine.State == Player.StDash
               || player.DashAttacking && player.StateMachine.State != Player.StRedDash
               || player.StateMachine.State == Player.StDreamDash
+              || (NerdHelperModule.CommunalHelperInterop.GetDreamTunnelDashState != null
+                  && player.StateMachine.State == NerdHelperModule.CommunalHelperInterop.GetDreamTunnelDashState())
+              || (NerdHelperModule.CommunalHelperInterop.IsSeekerDashAttacking?.Invoke() ?? false)
               || player.StateMachine.State == Player.StRedDash && red)
              && (!zeroSpeedOnly || player.Speed.Equals(Vector2.Zero))
              && CheckDir(player.DashDir))
