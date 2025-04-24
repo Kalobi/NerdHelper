@@ -7,11 +7,11 @@ namespace Celeste.Mod.NerdHelper.Module;
 
 [ModExportName("NerdHelper")]
 public class NerdHelperInterop {
-    public void CutsceneShake(float time) {
+    public static void CutsceneShake(float time) {
         (Engine.Scene as Level)?.CutsceneShake(time);
     }
 
-    public void CutsceneDirectionalShake(Vector2 dir, float time) {
+    public static void CutsceneDirectionalShake(Vector2 dir, float time) {
         (Engine.Scene as Level)?.CutsceneDirectionalShake(dir, time);
     }
 }
