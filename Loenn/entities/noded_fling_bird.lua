@@ -45,7 +45,7 @@ if currentLoenn then
                             return false
                         end
                         local num = tonumber(str)
-                        return num >= 0 and num <= #entity.nodes
+                        return num >= 0 and num <= (entity.nodes ? #entity.nodes : 0)
                     end
                 }
             }
